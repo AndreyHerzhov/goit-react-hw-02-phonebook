@@ -62,8 +62,6 @@ const ContactFormWrapper = styled.form`
     display: flex;
     flex-direction: column;
     padding: 20px;
-    margin-left: 60px;
-    margin-top: 60px;
     width: 400px;
     height: 150px;
     border: 1px solid grey;
