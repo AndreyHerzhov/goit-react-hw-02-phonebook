@@ -5,14 +5,11 @@ import styled from "styled-components";
 
 class ContactForm extends Component {
     state = {
-        contacts: [],
+        
         name: '',
         number: ''
       }
-    //   handleChange = (event) => {
-    //     console.log(event.currentTarget.value)
-    //     this.setState({name: event.currentTarget.value})
-    //   }
+ 
       handleInputChange = (event) => {
         const target = event.target;
         const value = target.value;
@@ -24,8 +21,9 @@ class ContactForm extends Component {
       }
     
       handleSubmit = (event) =>  {
-        alert('Отправленное имя: ' + this.state.name);
         event.preventDefault();
+        console.log(this.state)
+        this.props.onSubmit(this.state.name , this.state.number)
         this.setState({name: "", number: ""})
       }
 

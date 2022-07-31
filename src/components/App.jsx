@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import ContactForm from "./moleculs/ContactForm/ContactForm";
 import ContactList from "./moleculs/ContactList/ContactList";
-// import { nanoid } from 'nanoid'
+import { nanoid } from 'nanoid'
 import styled from "styled-components";
+import Filter from "./moleculs/Filter/Filter";
+import Notiflix from 'notiflix';
 
 
 
@@ -15,26 +17,56 @@ class App extends Component {
       {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},
     ],
     filter: '',
-    name: '',
-    number: ''
+     
   }
   
+  addContact = (name, number) => {
+    
+    const newContact = {
+      id: "",
+      name: "",
+      number: 0 
+    }
+    // console.log(name, " ", number)
+    newContact.name = name
+    newContact.number = number
+    newContact.id = nanoid() 
+    // console.log(newContact)
+    const existedContact = this.state.contacts.find(contact => contact.name === newContact.name)
+    console.log(existedContact)
+    if(existedContact){
+      Notiflix.Report.warning('Notification', `${newContact.name } is already in contacts`, 'Return');
+      return
+    }
+    this.setState(prevState => ({
+      contacts: [newContact, ...prevState.contacts]
+    }))
+  }
+
   deleteContact = (contactId) => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== contactId)
     }))
   }
 
+  changeFilter = (e) => {
+    this.setState({filter: e.currentTarget.value})
+  }
+
  
   render() {
-     const { contacts } = this.state
+    const { contacts } = this.state
+    const filteredContacts =  contacts.filter(
+      contact => contact.name.toLowerCase().includes(this.state.filter.toLowerCase()))
+      // console.log(filteredContacts)
     return (
       <div>
         <ContactCard>
             <h1>Phonebook</h1>
-            <ContactForm/>
+            <ContactForm onSubmit={this.addContact}/>
             <h2>Contacts</h2>
-            <ContactList contacts={contacts} onDeleteContact={this.deleteContact}/>
+            <Filter value={this.state.filter} onChange={this.changeFilter}/>
+            <ContactList contacts={filteredContacts} onDeleteContact={this.deleteContact}/>
         </ContactCard> 
       </div>
     )

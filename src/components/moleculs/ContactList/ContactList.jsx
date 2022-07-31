@@ -27,7 +27,8 @@ const ContactListWrapper = styled.form`
     margin-top: 30px;
     padding: 20px;
     width: 400px;
-    height: 150px;
+    height: 350px;
+    
     border: 1px solid grey;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 20px;
