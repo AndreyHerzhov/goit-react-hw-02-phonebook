@@ -5,7 +5,6 @@ import styled from "styled-components";
 
 class ContactForm extends Component {
     state = {
-        
         name: '',
         number: ''
       }
