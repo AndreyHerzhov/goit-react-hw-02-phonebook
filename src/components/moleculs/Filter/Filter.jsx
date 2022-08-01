@@ -1,9 +1,7 @@
-import React, { Component } from "react";
-import styled from "styled-components";
+import { FilterLabel,FilterInput } from "./Filter.styled"
 
-class Filter extends Component {
-    render() {
-        const {value, onChange} = this.props
+export const Filter = ({value, onChange}) => {
+    
         return(
             <>
             <FilterLabel>Find contacts by name</FilterLabel>
@@ -11,15 +9,6 @@ class Filter extends Component {
             </>
         )
     }
-}
+ 
 
 export default Filter
-
-const FilterInput = styled.input`
-    margin-left: 10px;
-`
-
-const FilterLabel = styled.label`
-    font-size: 16px;
-    margin-top: 30px;
-`

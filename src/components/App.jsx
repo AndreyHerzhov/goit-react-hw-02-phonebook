@@ -27,11 +27,11 @@ class App extends Component {
       name: "",
       number: 0 
     }
-    // console.log(name, " ", number)
+   
     newContact.name = name
     newContact.number = number
     newContact.id = nanoid() 
-    // console.log(newContact)
+    
     const existedContact = this.state.contacts.find(contact => contact.name === newContact.name)
     console.log(existedContact)
     if(existedContact){
@@ -58,7 +58,7 @@ class App extends Component {
     const { contacts } = this.state
     const filteredContacts =  contacts.filter(
       contact => contact.name.toLowerCase().includes(this.state.filter.toLowerCase()))
-      // console.log(filteredContacts)
+     
     return (
       <div>
         <ContactCard>

@@ -1,7 +1,7 @@
 import React, { Component} from "react";
 import NameInput from "components/atoms/NameInput/NameInput";
 import TelefonInput from "components/atoms/TellefonInput/TellefonInput";
-import styled from "styled-components";
+import { NameInputTitle,ContactFormWrapper,ContactFormButton } from "./ContactForm.styled"; 
 
 class ContactForm extends Component {
     state = {
@@ -39,37 +39,15 @@ class ContactForm extends Component {
                 </NameInputTitle>
                 <TelefonInput value={this.state.number} onChange={this.handleInputChange}/>
                 <ContactFormButton type="submit" value="Add contact" />
-            </ContactFormWrapper>
-           
-           
-            
-            
+          </ContactFormWrapper>
         )
-    }
-}
+      }
+  }         
+          
+            
+
 
 export default ContactForm
 
-const NameInputTitle = styled.label`
-    font-size: 24px;
-    font-weight: 500;
-`
 
-const ContactFormWrapper = styled.form`
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    width: 400px;
-    height: 150px;
-    border: 1px solid grey;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    border-radius: 20px;
-    
-`
-
-const ContactFormButton = styled.input`
-    margin-top: 10px;
-    width: 100px;
-    height: 20px;
-`
 

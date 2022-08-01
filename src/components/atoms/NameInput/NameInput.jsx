@@ -1,11 +1,8 @@
-import React, { Component } from "react";
-import styled from "styled-components"; 
+import { Input } from "./NameInput.styled"; 
 
-class NameInput extends Component {
-    render() {
-       const { value,onChange  } = this.props
-        return (
-            <>      
+export const NameInput = ({ value,onChange }) => {
+    return (
+        <>      
                           
                         <Input
                         onChange={onChange}
@@ -19,21 +16,9 @@ class NameInput extends Component {
                         Charles de Batz de Castelmore d'Artagnan"
                         required/>
                          
-          </>                 
-        )
-    }
-}
+          </>      
+    );
+  };
 
-
-
-const Input = styled.input`
-    margin-top: 10px;
-    width: 150px;
-   
-   &:focus{
-    border-color: green ;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    }
-`
 
 export default NameInput
