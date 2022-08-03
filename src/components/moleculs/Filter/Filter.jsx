@@ -1,4 +1,5 @@
 import { FilterLabel,FilterInput } from "./Filter.styled"
+import PropTypes from "prop-types"
 
 export const Filter = ({value, onChange}) => {
     
@@ -12,3 +13,8 @@ export const Filter = ({value, onChange}) => {
  
 
 export default Filter
+
+Filter.propTypes = {
+    value: PropTypes.string,
+    
+}

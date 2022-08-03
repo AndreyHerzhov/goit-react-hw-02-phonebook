@@ -1,7 +1,6 @@
 import React, { Component} from "react";
-import NameInput from "components/atoms/NameInput/NameInput";
-import TelefonInput from "components/atoms/TellefonInput/TellefonInput";
-import { NameInputTitle,ContactFormWrapper,ContactFormButton } from "./ContactForm.styled"; 
+import { NameInputTitle,ContactFormWrapper,ContactFormButton, Input } from "./ContactForm.styled"; 
+
 
 class ContactForm extends Component {
     state = {
@@ -27,17 +26,37 @@ class ContactForm extends Component {
       }
 
     render() {
-        // console.log(this.state.name)
+      
         return (
             <ContactFormWrapper onSubmit={this.handleSubmit}>
                 <NameInputTitle>
                 Name:
                 </NameInputTitle>
-                <NameInput value={this.state.name} onChange={this.handleInputChange}/> 
+                <Input
+                        onChange={this.handleInputChange}
+                        value={this.state.name}
+                        type="text"
+                        name="name"
+                        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+                        title="Name may contain only letters, 
+                        apostrophe, dash and spaces. 
+                        For example Adrian, Jacob Mercer, 
+                        Charles de Batz de Castelmore d'Artagnan"
+                        required/>        
+                
                 <NameInputTitle>
                 Number:
                 </NameInputTitle>
-                <TelefonInput value={this.state.number} onChange={this.handleInputChange}/>
+                <Input
+                      onChange={this.handleInputChange}
+                      value={this.state.number}
+                      type="tel"
+                      name="number"
+                      pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+                      title="Phone number must be digits and can contain spaces, 
+                              dashes, parentheses and can start with +"
+                      required
+                />
                 <ContactFormButton type="submit" value="Add contact" />
           </ContactFormWrapper>
         )

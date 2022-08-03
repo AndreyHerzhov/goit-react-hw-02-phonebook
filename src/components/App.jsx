@@ -33,7 +33,7 @@ class App extends Component {
     newContact.id = nanoid() 
     
     const existedContact = this.state.contacts.find(contact => contact.name === newContact.name)
-    console.log(existedContact)
+    // console.log(existedContact)
     if(existedContact){
       Notiflix.Report.warning('Notification', `${newContact.name } is already in contacts`, 'Return');
       return
