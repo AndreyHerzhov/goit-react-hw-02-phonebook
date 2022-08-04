@@ -1,6 +1,6 @@
 import React, { Component} from "react";
 import { NameInputTitle,ContactFormWrapper,ContactFormButton, Input } from "./ContactForm.styled"; 
-
+import PropTypes from "prop-types"
 
 class ContactForm extends Component {
     state = {
@@ -67,6 +67,11 @@ class ContactForm extends Component {
 
 
 export default ContactForm
+
+ContactForm.propTypes = {
+  
+};
+
 
 
 
